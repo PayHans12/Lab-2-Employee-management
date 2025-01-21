@@ -2,20 +2,22 @@ namespace Employees;
 
 public class Employee
 {
-    
+    Random num = new Random();
     public string Name {get; set;}
-    public Guid EmployeeId {get; private set;}
+    public int EmployeeId {get; private set;}
     public decimal BaseSalary {get; private set;}
     
     public Employee()
     {
-        EmployeeId = Guid.newGuid();
+        EmployeeId = num.Next();
+        BaseSalary = 10000 * (decimal)num.NextDouble();
+        Name = "Unknown";
     }
 
-    public Employee(string name, decimal baseSalary, Guid employeeId)
+    public Employee(string name, decimal baseSalary)
     {
         Name = name;
-        EmployeeId = employeeId;
+        EmployeeId = num.Next();
         BaseSalary = baseSalary;
     }
 
